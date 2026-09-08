@@ -5,13 +5,14 @@ public class Game
   private int _cityHealth = 15;
   private int _manticoreHealth = 10;
   private int _manticoreLocation;
-  private int round = 0;
+  private int round;
   private bool running = true;
 
   private void GetPlayer1Input()
   {
     Console.Write("Player 1, how far away from the city do you want to station the Manticore?: ");
     int.TryParse(Console.ReadLine(), out _manticoreLocation);
+    Console.Clear();
   }
 
   public int GetPlayer2Input()
@@ -24,6 +25,7 @@ public class Game
   public void Start()
   {
     GetPlayer1Input();
+    Console.WriteLine("Player 2, it is your turn.");
     while (running)
     {
       RunRound();
@@ -33,7 +35,7 @@ public class Game
 
   private void DetermineWinner()
   {
-    var message = _cityHealth <= 0 ? "The city of Consolas has ben destroyed by the Manticore" : (_manticoreHealth <= 0) ? "The Manticore has been destroyed! The city of Consolas has been saved!" : string.Empty;
+    var message = _cityHealth <= 0 ? "The city of Consolas has ben destroyed by the Manticore!" : (_manticoreHealth <= 0) ? "The Manticore has been destroyed! The city of Consolas has been saved!" : string.Empty;
 
     if (!string.IsNullOrEmpty(message))
     {
@@ -44,6 +46,8 @@ public class Game
 
   public void RunRound()
   {
+    ++round;
+    Console.WriteLine("".PadRight(15, '-'));
     DisplayStatus();
     DisplayHitPotential(CalculateCannonDamage());
     var target = GetPlayer2Input();
@@ -95,7 +99,7 @@ public class Game
 
   private void DisplayStatus()
   {
-    Console.WriteLine($"STATUS; Round: {round} City: {_cityHealth}/15 Manticore: {_manticoreHealth}/10");
+    Console.WriteLine($"STATUS: Round: {round} City: {_cityHealth}/15 Manticore: {_manticoreHealth}/10");
   }
 }
 
