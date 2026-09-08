@@ -5,8 +5,8 @@ public class Game
   private int _cityHealth = 15;
   private int _manticoreHealth = 10;
   private int _manticoreLocation;
-  private int round;
-  private bool running = true;
+  private int _round;
+  private bool _running = true;
 
   private void GetPlayer1Input()
   {
