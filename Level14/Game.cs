@@ -35,7 +35,19 @@ public class Game
 
   private void DetermineWinner()
   {
-    var message = _cityHealth <= 0 ? "The city of Consolas has ben destroyed by the Manticore!" : (_manticoreHealth <= 0) ? "The Manticore has been destroyed! The city of Consolas has been saved!" : string.Empty;
+    string message;
+    if (_cityHealth <= 0)
+    {
+      message = "The city of Consolas has ben destroyed by the Manticore!";
+    }
+    else if (_manticoreHealth <= 0)
+    {
+      message = "The Manticore has been destroyed! The city of Consolas has been saved!";
+    }
+    else
+    {
+      message = string.Empty;
+    }
 
     if (!string.IsNullOrEmpty(message))
     {
