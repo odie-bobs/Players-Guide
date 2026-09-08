@@ -36,7 +36,12 @@ public class Game
   private void DetermineWinner()
   {
     string message;
-    if (_cityHealth <= 0)
+
+    if (_cityHealth == 0 && _manticoreHealth == 0)
+    {
+      message = "The Manticore and city of Consolas have settled their diference!"
+    }
+    else if (_cityHealth <= 0)
     {
       message = "The city of Consolas has ben destroyed by the Manticore!";
     }
