@@ -26,9 +26,9 @@ public class Game
   {
     GetPlayer1Input();
     Console.WriteLine("Player 2, it is your turn.");
-    while (running)
+    while (_running)
     {
-      RunRound();
+      Run_round();
       DetermineWinner();
     }
   }
@@ -39,7 +39,7 @@ public class Game
 
     if (_cityHealth == 0 && _manticoreHealth == 0)
     {
-      message = "The Manticore and city of Consolas have settled their diference!"
+      message = "The Manticore and city of Consolas have settled their diference!";
     }
     else if (_cityHealth <= 0)
     {
@@ -57,13 +57,13 @@ public class Game
     if (!string.IsNullOrEmpty(message))
     {
       Console.WriteLine(message);
-      running = false;
+      _running = false;
     }
   }
 
-  public void RunRound()
+  public void Run_round()
   {
-    ++round;
+    ++_round;
     Console.WriteLine("".PadRight(15, '-'));
     DisplayStatus();
     DisplayHitPotential(CalculateCannonDamage());
@@ -81,7 +81,7 @@ public class Game
 
   private void DisplayHitPotential(int hit)
   {
-    Console.WriteLine($"The cannon is expected to deal {hit} damage this round.");
+    Console.WriteLine($"The cannon is expected to deal {hit} damage this _round.");
   }
 
   private void DisplayHitResult(int target)
@@ -102,9 +102,9 @@ public class Game
 
   private int CalculateCannonDamage()
   {
-    if (round % 5 <= 0 && round % 3 <= 0)
+    if (_round % 5 <= 0 && _round % 3 <= 0)
     { return 10; }
-    else if (round % 5 == 0 || round % 3 == 0)
+    else if (_round % 5 == 0 || _round % 3 == 0)
     { return 3; }
     else
     { return 1; }
@@ -116,7 +116,7 @@ public class Game
 
   private void DisplayStatus()
   {
-    Console.WriteLine($"STATUS: Round: {round} City: {_cityHealth}/15 Manticore: {_manticoreHealth}/10");
+    Console.WriteLine($"STATUS: Round: {_round} City: {_cityHealth}/15 Manticore: {_manticoreHealth}/10");
   }
 }
 
