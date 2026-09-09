@@ -28,7 +28,7 @@ public class Game
     Console.WriteLine("Player 2, it is your turn.");
     while (_running)
     {
-      Run_round();
+      RunRound();
       DetermineWinner();
     }
   }
@@ -61,7 +61,7 @@ public class Game
     }
   }
 
-  public void Run_round()
+  public void RunRound()
   {
     ++_round;
     Console.WriteLine("".PadRight(15, '-'));
@@ -81,7 +81,7 @@ public class Game
 
   private void DisplayHitPotential(int hit)
   {
-    Console.WriteLine($"The cannon is expected to deal {hit} damage this _round.");
+    Console.WriteLine($"The cannon is expected to deal {hit} damage this round.");
   }
 
   private void DisplayHitResult(int target)
