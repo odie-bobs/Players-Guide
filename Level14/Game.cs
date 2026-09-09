@@ -102,7 +102,7 @@ public class Game
 
   private int CalculateCannonDamage()
   {
-    if (round % 5 == 0 && round % 3 == 0)
+    if (round % 5 <= 0 && round % 3 <= 0)
     { return 10; }
     else if (round % 5 == 0 || round % 3 == 0)
     { return 3; }
