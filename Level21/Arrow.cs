@@ -36,6 +36,20 @@ public class Arrow
     return lengthCost + headCost + fletchingCost;
 
   }
+
+  public static Arrow CreateEliteArrow()
+  {
+    return new Arrow(Head.Steel, 95f, Fletching.Plastic);
+  }
+  public static Arrow CreateBeginnerArrow()
+  {
+    return new Arrow(Head.Wood, 75f, Fletching.GooseFeathers);
+  }
+
+  public static Arrow CreateMarksmanArrow()
+  {
+    return new Arrow(Head.Steel, 65f, Fletching.GooseFeathers);
+  }
 }
 
 public enum Head
